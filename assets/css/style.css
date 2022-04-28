@@ -5,7 +5,8 @@
 
 :root {
   /* Unchange color */
-  --first-const-color: #006944; /* #094b65 */
+  --first-const-color: #006944;
+  /* #094b65 */
   --second-const-color: #fff;
   --third-const-color: #333;
   --fourth-const-color: rgba(0, 0, 0, .2);
@@ -243,6 +244,7 @@ body {
   content: 'Switch To English';
   font-family: 'Poppins', sans-serif;
 }
+
 /*#endregion*/
 
 /*#region section*/
@@ -809,6 +811,7 @@ section #text span {
 .notification .more-detail .view-more-btn>i {
   margin-left: 10px;
 }
+
 /*#endregion*/
 
 /*#region moment*/
@@ -827,6 +830,158 @@ section #text span {
   font-size: 3.5em;
   color: var(--primary-color);
   margin-bottom: 10px;
+}
+
+.moment .moment-trip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4vw;
+  margin-bottom: 4vw;
+}
+
+.moment .moment-trip .book {
+  transition: opacity 0.4s 0.2s;
+}
+
+.moment .moment-trip p {
+  margin-top: 8vw;
+  text-align: center;
+  font-size: 5vw;
+  color: #000000;
+}
+
+.moment .moment-trip .page {
+  width: 40vw;
+  height: 28.2vw;
+  background-color: #111111;
+  float: left;
+  margin-bottom: 0.5em;
+  background: left top no-repeat;
+  background-size: cover;
+}
+
+.moment .moment-trip .page img {
+  width: 100%;
+}
+.moment .moment-trip .page:nth-child(even) {
+  clear: both;
+}
+
+.moment .moment-trip .book {
+  perspective: 250vw;
+}
+
+.moment .moment-trip .book .pages {
+  width: 80vw;
+  height: 28.2vw;
+  position: relative;
+  transform: rotateX(20deg);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  border-radius: 4px;
+}
+
+.moment .moment-trip .book .page {
+  float: none;
+  clear: none;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  width: 40vw;
+  height: 28.2vw;
+  transform-origin: 0 0;
+  transition: transform 1.4s;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  user-select: none;
+  background-color: #f0f0f0;
+  box-shadow: 0 1px 20px var(--fifth-const-color);
+}
+
+.moment .moment-trip .book .last-page {
+  background: var(--first-const-color);
+} 
+
+.moment .moment-trip .book .page:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.7s;
+  z-index: 2;
+}
+
+.moment .moment-trip .book .page:nth-child(odd) {
+  pointer-events: all;
+  transform: rotateY(0deg);
+  right: 0;
+  border-radius: 0 4px 4px 0;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, .15) 0%, rgba(0, 0, 0, 0) 10%);
+}
+
+.moment .moment-trip .book .page:nth-child(odd):hover {
+  transform: rotateY(-15deg);
+}
+
+.moment .moment-trip .book .page:nth-child(odd):hover:before {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.moment .moment-trip .book .page:nth-child(odd):before {
+  background: rgba(0, 0, 0, 0);
+}
+
+.moment .moment-trip .book .page:nth-child(even) {
+  pointer-events: none;
+  transform: rotateY(180deg);
+  transform-origin: 100% 0;
+  left: 0;
+  border-radius: 4px 0 0 4px;
+  border-color: black;
+  background-image: linear-gradient(to left, rgba(0, 0, 0, .12) 0%, rgba(0, 0, 0, 0) 10%);
+}
+
+.moment .moment-trip .book .page:nth-child(even):before {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.moment .moment-trip .book .page.grabbing {
+  transition: none;
+}
+
+.moment .moment-trip .book .page.flipped:nth-child(odd) {
+  pointer-events: none;
+  transform: rotateY(-180deg);
+}
+
+.moment .moment-trip .book .page.flipped:nth-child(odd):before {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.moment .moment-trip .book .page.flipped:nth-child(even) {
+  pointer-events: all;
+  transform: rotateY(0deg);
+}
+
+.moment .moment-trip .book .page.flipped:nth-child(even):hover {
+  transform: rotateY(15deg);
+}
+
+.moment .moment-trip .book .page.flipped:nth-child(even):hover:before {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.moment .moment-trip .book .page.flipped:nth-child(even):before {
+  background: rgba(0, 0, 0, 0);
+}
+
+.moment .moment-trip .page:nth-child(odd) {
+  background-position: right top;
 }
 
 .moment .moment-container {
@@ -1033,6 +1188,7 @@ section #text span {
   animation: wave 20s -1s linear infinite;
   opacity: 0.5;
 }
+
 /*#endregion*/
 
 /*#region moment-detail*/
@@ -1273,6 +1429,7 @@ section #text span {
   animation: wave 20s -1s linear infinite;
   opacity: 0.5;
 }
+
 /*#endregion*/
 
 /*#region event*/
@@ -1313,6 +1470,7 @@ section #text span {
   flex-wrap: wrap;
   padding: 100px 0;
 }
+
 .event .event-container .event-item:nth-child(n+6) {
   margin: 15px;
   position: relative;
@@ -1607,6 +1765,7 @@ section #text span {
   animation: wave 20s -1s linear infinite;
   opacity: 0.5;
 }
+
 /*#endregion*/
 
 /*#region contact*/
@@ -1930,6 +2089,7 @@ footer .container .sec.address .address-info li .map {
 .night-mode .copyright-text {
   background: url(/assets/images/stars.png), linear-gradient(#718fd6, var(--quaternary-color));
 }
+
 /*#endregion*/
 
 /*#region modal*/
